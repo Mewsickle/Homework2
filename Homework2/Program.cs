@@ -1,5 +1,5 @@
 ﻿using System;
-
+using GBStudyLib;
 
 /*1. Написать метод, возвращающий минимальное из трёх чисел.
 2.Написать метод подсчета количества цифр числа.
@@ -14,6 +14,7 @@
 a) Разработать рекурсивный метод, который выводит на экран числа от a до b(a<b).
 б) *Разработать рекурсивный метод, который считает сумму чисел от a до b.
 
+Студент Ким Алексей 
 */
 
 namespace Homework2
@@ -25,6 +26,7 @@ namespace Homework2
 
         static void Main()
             {
+            //Меню программы
             Console.Title = "Домашнее задание 2";
             Console.WriteLine("Здравствуйте, Юзер!/nДобро пожаловать в меню выбора программ!");
             Console.WriteLine("//////////////////////////////////////////////////////////////");
@@ -32,16 +34,14 @@ namespace Homework2
             Console.WriteLine("//////////////////////////////////////////////////////////////");
             Console.WriteLine("1:Метод возвращающий минимальное из трех чисел");
             Console.WriteLine("2:Метод подсчета количества цифр числа");
+            Console.WriteLine("3:Метод подсчета суммы всех нечетных положительных чисел.");
+
             Console.WriteLine("//////////////////////////////////////////////////////////////");
-
-
-
-
-
 
             int menuSwitch = int.Parse(Console.ReadLine());
             switch (menuSwitch)
             {
+               
                 case 1: 
                     menuSwitch = 1;
                     MinFinder();
@@ -50,6 +50,11 @@ namespace Homework2
                     menuSwitch = 2;
                     NumCount(); 
                     break;
+                case 3:
+                    menuSwitch = 3;
+                    SumOdd();
+                    break;
+
             }
 
             // Задание 1) Написать метод, возвращающий минимальное из трёх чисел
@@ -72,7 +77,8 @@ namespace Homework2
                 
             }
             //2. Написать метод подсчета количества цифр числа.
-            static void NumCount() {
+            static void NumCount() 
+            {
                 Console.Title = "2:Метод подсчета количества цифр числа";
                 Console.WriteLine("Введите число от 0 до 999");
                 int a = int.Parse(Console.ReadLine());
@@ -91,6 +97,38 @@ namespace Homework2
                     num = 3;
                     Console.WriteLine($"Количество цифр в числе = {num}");
                 }
+
+            }
+
+            static void SumOdd() 
+            {
+                Console.Title = "3:Метод подсчета суммы всех нечетных положительных чисел";
+                
+                int a;
+                int sum = 0;
+                static bool Odd(int x)
+                {
+                    return x % 2 == 0;
+                }
+
+
+
+                do
+                {
+                    Console.WriteLine("Пожалуйста введите число");
+                    a = int.Parse(Console.ReadLine());
+                    if (Odd(a))
+                           sum = sum + a;
+                        
+               
+                    
+                    
+                }
+                while (a != 0);
+
+                Console.WriteLine($"Сумма четных чисел = {sum}");
+
+
 
             }
 
