@@ -100,33 +100,30 @@ namespace Homework2
 
             }
 
+            //Задание 3. С клавиатуры вводятся числа, пока не будет введен 0. Подсчитать сумму всех нечетных положительных чисел..
             static void SumOdd() 
             {
                 Console.Title = "3:Метод подсчета суммы всех нечетных положительных чисел";
                 
                 int a;
                 int sum = 0;
-                static bool Odd(int x)
+                static bool NotOdd(int x)
                 {
-                    return x % 2 == 0;
+                    return x % 2 != 0;
                 }
-
-
 
                 do
                 {
-                    Console.WriteLine("Пожалуйста введите число");
+                    Console.WriteLine("Пожалуйста введите число, введите 0 если хотите подсчитать сумму нечетных положительных чисел");
                     a = int.Parse(Console.ReadLine());
-                    if (Odd(a))
+                    if (NotOdd(a) && a > 0)
                            sum = sum + a;
-                        
-               
-                    
+                                                          
                     
                 }
                 while (a != 0);
 
-                Console.WriteLine($"Сумма четных чисел = {sum}");
+                Console.WriteLine($"Сумма нечетных чисел = {sum}");
 
 
 
