@@ -37,6 +37,8 @@ namespace Homework2
             Console.WriteLine("3:Метод подсчета суммы всех нечетных положительных чисел.");
             Console.WriteLine("4:Программа аутентификации.");
             Console.WriteLine("5:Программа проверки веса");
+            Console.WriteLine("6:Программа подсчета количества «хороших» чисел в диапазоне от 1 до 1 000 000 000");
+
 
             Console.WriteLine("//////////////////////////////////////////////////////////////");
 
@@ -64,7 +66,10 @@ namespace Homework2
                     menuSwitch = 5;
                     MassCheck();
                     break;
-
+                case 6:
+                    menuSwitch = 6;
+                    NumCheck();
+                    break;
             }
 
             // Задание 1) Написать метод, возвращающий минимальное из трёх чисел
@@ -205,6 +210,42 @@ namespace Homework2
                     Console.WriteLine($"Ваш ИМТ  = {imt:F2}, наблюдается избыток массы тела! Худей давай! необходимо сбросить {n:F2} кг!");
 
                 }
+
+            }
+            // метод проверки чисел
+            static void NumCheck()
+            {
+                Console.Title = "Программа подсчета количества «хороших» чисел в диапазоне от 1 до 1 000 000 000";
+                DateTime start = DateTime.Now;
+
+
+
+                var mc = new Formulas();
+                
+                int i = 1;
+                int sum = 0;
+                
+
+
+                    do
+                    {
+                    i++;
+
+                    if (mc.IsGood(i))
+                    {
+                        //Console.WriteLine(i); 
+                        sum++;
+                    }
+                      
+
+                }
+
+                    while (i < 100000000);
+                DateTime finish = DateTime.Now;
+                
+
+                Console.WriteLine($"Количество «хороших» чисел в диапазоне от 1 до 1 000 000 000 = {sum}");
+                Console.WriteLine($"Время выполнения программы {finish - start}");
 
 
 
