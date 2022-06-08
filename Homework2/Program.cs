@@ -35,6 +35,8 @@ namespace Homework2
             Console.WriteLine("1:Метод возвращающий минимальное из трех чисел");
             Console.WriteLine("2:Метод подсчета количества цифр числа");
             Console.WriteLine("3:Метод подсчета суммы всех нечетных положительных чисел.");
+            Console.WriteLine("4:Программа аутентификации.");
+            Console.WriteLine("5:Программа проверки веса");
 
             Console.WriteLine("//////////////////////////////////////////////////////////////");
 
@@ -53,6 +55,14 @@ namespace Homework2
                 case 3:
                     menuSwitch = 3;
                     SumOdd();
+                    break;
+                case 4:
+                    menuSwitch = 4; ;
+                    Login();
+                    break;
+                case 5:
+                    menuSwitch = 5;
+                    MassCheck();
                     break;
 
             }
@@ -128,9 +138,79 @@ namespace Homework2
 
 
             }
+            //4. Метод проверки логина и пароля.
 
+            static void Login()
+            {
+                Console.Title = "Программа аутентификации";
+                int count = 4;
+                do
+                {
+                    Console.WriteLine("Введите Логин:");
+                    string login = Console.ReadLine();
+                    Console.WriteLine("Введите Пароль:");
+                    string pass = Console.ReadLine();
+
+                    if (login == "root" && pass == "GeekBrains")
+                    {
+                        Console.WriteLine($"Авторизация прошла успешно!");
+                        break;
+                    }
+
+                    else if (login != "root" || pass != "GeekBrains")
+                    {
+                        count = count - 1;
+                        Console.WriteLine($"Логин или пароль неверный!");
+                    }
+                }
+               
+                while (count > 0);
+                
+                Console.ReadLine();
+               
+
+            }
+
+            //5. Метод проверки веса
+            static void MassCheck()
+            {
+                Console.Title = "Программа расчета ИМТ и массы";
+                Console.WriteLine("Пожалуйста введите свой вес (в кг)");
+                string InputWeight = Console.ReadLine();
+                double w;
+                w = Convert.ToDouble(InputWeight);
+
+                Console.WriteLine("Пожалуйста введите свой рост (в сантиметрах)");
+                string InputHeight = Console.ReadLine();
+                double h;
+                h = Convert.ToDouble(InputHeight);
+
+                double imt;
+                imt = w / (h / 100 * h / 100);
+
+                double n;
+
+
+                if (imt > 0 && imt < 18.5)
+                {
+                    n = 18.5 * (h / 100 * h / 100) - w;
+                    Console.WriteLine($"Ваш ИМТ  = {imt:F2}, наблюдается недостаток массы тела! Время навестить бабушку! необходимо набрать {n:F2} кг!");
+                }
+                    
+                else if (imt >= 18.5 && imt <= 25)
+                    Console.WriteLine($"Ваш ИМТ  = {imt:F2}, все хорошо! Так держать!");
+                else
+                {
+                    n = w - 25 * (h / 100 * h / 100);
+                    Console.WriteLine($"Ваш ИМТ  = {imt:F2}, наблюдается избыток массы тела! Худей давай! необходимо сбросить {n:F2} кг!");
+
+                }
+
+
+
+
+            }
         }
 
-        
     }
 }
