@@ -238,7 +238,7 @@ namespace Homework2
 
                     if (mc.IsGood(i))
                     {
-                        //Console.WriteLine(i); 
+                        
                         sum++;
                     }
                       
