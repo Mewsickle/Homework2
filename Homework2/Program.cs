@@ -38,6 +38,7 @@ namespace Homework2
             Console.WriteLine("4:Программа аутентификации.");
             Console.WriteLine("5:Программа проверки веса");
             Console.WriteLine("6:Программа подсчета количества «хороших» чисел в диапазоне от 1 до 1 000 000 000");
+            Console.WriteLine("7:Методы рекурсии");
 
 
             Console.WriteLine("//////////////////////////////////////////////////////////////");
@@ -69,6 +70,10 @@ namespace Homework2
                 case 6:
                     menuSwitch = 6;
                     NumCheck();
+                    break;
+                case 7:
+                    menuSwitch = 7;
+                    Recurs();
                     break;
             }
 
@@ -246,6 +251,44 @@ namespace Homework2
 
                 Console.WriteLine($"Количество «хороших» чисел в диапазоне от 1 до 1 000 000 000 = {sum}");
                 Console.WriteLine($"Время выполнения программы {finish - start}");
+
+
+
+
+            }
+            //a) Разработать рекурсивный метод, который выводит на экран числа от a до b(a<b).
+            //б) *Разработать рекурсивный метод, который считает сумму чисел от a до b.
+            static void Recurs()
+            {
+                Console.Title = "метод рекурсии";
+                // a)
+                Console.WriteLine("Введите число а");
+                int a = Convert.ToInt32(Console.ReadLine());
+                Console.WriteLine("Введите число b");
+                int b = Convert.ToInt32(Console.ReadLine());
+                int sum = b;
+                CountNum(a, b);
+                SumNum(a, b, sum);
+
+                 static void CountNum(int a, int b)
+                {
+                    Console.WriteLine(a);
+
+                    if (a < b)
+                        CountNum(a + 1, b);
+                    
+                }
+
+              
+
+                static void SumNum(int a, int b, int sum)
+                {
+                    if (a < b)
+                        SumNum(a + 1, b, sum + a);
+                    else
+                        Console.WriteLine(sum);
+                }
+                    
 
 
 
